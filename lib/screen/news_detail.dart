@@ -9,11 +9,11 @@ class NewsDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black, // Set AppBar color to black
+        backgroundColor: Colors.black,
         title: Text(
           'News Detail',
           style: const TextStyle(
-            color: Colors.white, // Set title text color to white
+            color: Colors.white,
           ),
         ),
       ),

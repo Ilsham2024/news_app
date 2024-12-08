@@ -35,8 +35,8 @@ class _SelectedCategoryNewsState extends State<SelectedCategoryNews> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black, // Set AppBar background to black
-        foregroundColor: Colors.white, // Set AppBar text to white
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
         title: Text(
           widget.category,
           style: const TextStyle(

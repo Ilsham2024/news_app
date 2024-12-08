@@ -27,7 +27,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     widget.userProfile.email = emailController.text;
     widget.userProfile.profilePicture = profilePictureController.text;
 
-    Navigator.pop(context);  // Return to the previous screen (UserProfileScreen)
+    Navigator.pop(context);
   }
 
   @override

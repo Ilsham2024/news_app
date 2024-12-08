@@ -28,11 +28,11 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
     await newsApi.getNews();
     setState(() {
       articles = newsApi.dataStore;
-      filteredArticles = List.from(articles); // Initially, show all articles
+      filteredArticles = List.from(articles);
       isLoading = false;
     });
 
-    // Debugging to ensure articles are loaded
+
     print('Articles loaded: ${articles.length}');
   }
 
@@ -47,7 +47,7 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
       ),
     );
 
-    // If the updated profile is not null, update the state
+    //
     if (updatedProfile != null) {
       setState(() {
         userName = updatedProfile['name']; // Update name
@@ -57,9 +57,9 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
   }
 
   void logout() {
-    // Add your logout logic here (e.g., clear user session, navigate to login screen)
+
     Navigator.popUntil(context, (route) => route.isFirst);
-    // Replace this with the login screen navigation
+
   }
 
   @override
@@ -69,11 +69,11 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
     getNews();
   }
 
-  // Filter the articles based on search query
+
   void filterNews(String query) {
     setState(() {
       if (query.isEmpty) {
-        filteredArticles = List.from(articles); // Show all articles when search is cleared
+        filteredArticles = List.from(articles);
       } else {
         filteredArticles = articles
             .where((article) =>
@@ -82,7 +82,7 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
             .toList();
       }
 
-      // Debugging the filter functionality
+
       print('Search query: $query');
       print('Filtered articles count: ${filteredArticles.length}');
     });
@@ -94,12 +94,12 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
       appBar: AppBar(
         title: Row(
           children: [
-            // Search bar container
+
             Expanded(
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white, // Background color for search bar
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextField(
@@ -109,8 +109,8 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(horizontal: 15),
                   ),
-                  style: const TextStyle(color: Colors.black), // Black text
-                  onChanged: filterNews, // Trigger search as user types
+                  style: const TextStyle(color: Colors.black),
+                  onChanged: filterNews,
                 ),
               ),
             ),
@@ -119,7 +119,7 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
             IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {
-                filterNews(searchController.text); // Trigger search manually if needed
+                filterNews(searchController.text); //
               },
             ),
           ],
@@ -137,7 +137,7 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Hello, $userName', // Display updated user name
+                    'Hello, $userName', //
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -146,7 +146,7 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    userEmail, // Display updated user email
+                    userEmail, //
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -158,12 +158,12 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
             ListTile(
               leading: const Icon(Icons.person),
               title: const Text('User Profile'),
-              onTap: navigateToUserProfile, // Navigate to the UserProfileScreen
+              onTap: navigateToUserProfile,
             ),
             ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Logout'),
-              onTap: logout, // Trigger the logout function
+              onTap: logout,
             ),
           ],
         ),
@@ -203,7 +203,7 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.black, // Changed to black
+                          color: Colors.black,
                         ),
                         child: Center(
                           child: Text(
@@ -211,7 +211,7 @@ class _NewsHomeScreenState extends State<NewsHomeScreen> {
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Colors.white, // White text
+                              color: Colors.white,
                             ),
                           ),
                         ),
